@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f657b6ec8cbc464d92037d7cb9f3178, type: 3}
+  m_Name: LongBow_Attack_data
+  m_EditorClassIdentifier: Assembly-CSharp:Luo.Skill:ActiveSkillDataSO
+  skillName: LongBow
+  cooldown: 0
+  isActive: 1
+  effects:
+  - effectSO: {fileID: 11400000, guid: b3409fcc57bbc2c43b99f0129b735afb, type: 2}
+    value: 0
+    duration: 0
+    tickInterval: 0
+  view: {fileID: 11400000, guid: 0b1cac562a9e4884ebd5fa764032d3d6, type: 2}
+  targetSelector: {fileID: 11400000, guid: ee4028adce378424688a04925ce52550, type: 2}
+  timeline:
+    startUpStart: 0
+    startUpEnd: 0.56
+    effectStart: 0.56
+    effectEnd: 1
+    comboStart: 0
+    comboEnd: 0
+    recovery1Start: 0
+    recovery1End: 0
+    recovery2Start: 0
+    recovery2End: 0
+  conditions:
+  - {fileID: 11400000, guid: a017a99f78267d142b9b89d67414f459, type: 2}
+  comboTransitions: []
+  canCombo: 0
+  recoveryTransitions: []
+  canRecovery: 0

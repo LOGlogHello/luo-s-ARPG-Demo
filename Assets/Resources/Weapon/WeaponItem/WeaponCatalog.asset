@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33c52c915ac231c489dee94c49614597, type: 3}
+  m_Name: WeaponCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::Luo.WeaponCatalog
+  entries:
+  - weaponType: 1
+    weaponName: GreatSword1
+    weaponID: 1
+    statPath: Weapon/WeaponItem\GreatSword\GreatSword1\GreatSword1_Stat
+    combatPath: Weapon/WeaponItem\GreatSword\GreatSword1\GreatSword1_Combat
+    viewPath: Weapon/WeaponItem\GreatSword\GreatSword1\GreatSword1_View
+  - weaponType: 1
+    weaponName: GreatSword2
+    weaponID: 2
+    statPath: Weapon/WeaponItem\GreatSword\GreatSword2\GreatSword2_Stat
+    combatPath: Weapon/WeaponItem\GreatSword\GreatSword2\GreatSword2_Combat
+    viewPath: Weapon/WeaponItem\GreatSword\GreatSword2\GreatSword2_View
+  - weaponType: 1
+    weaponName: GreatSword3
+    weaponID: 3
+    statPath: Weapon/WeaponItem\GreatSword\GreatSword3\GreatSword3_Stat
+    combatPath: Weapon/WeaponItem\GreatSword\GreatSword3\GreatSword3_Combat
+    viewPath: Weapon/WeaponItem\GreatSword\GreatSword3\GreatSword3_View
+  - weaponType: 1
+    weaponName: GreatSword4
+    weaponID: 4
+    statPath: Weapon/WeaponItem\GreatSword\GreatSword4\GreatSword4_Stat
+    combatPath: Weapon/WeaponItem\GreatSword\GreatSword4\GreatSword4_Combat
+    viewPath: Weapon/WeaponItem\GreatSword\GreatSword4\GreatSword4_View
+  - weaponType: 2
+    weaponName: LongBow1
+    weaponID: 1
+    statPath: Weapon/WeaponItem\LongBow\LongBow1\LongBow1_Stat
+    combatPath: Weapon/WeaponItem\LongBow\LongBow1\LongBow1_Combat
+    viewPath: Weapon/WeaponItem\LongBow\LongBow1\LongBow1_View
+  - weaponType: 2
+    weaponName: LongBow2
+    weaponID: 2
+    statPath: Weapon/WeaponItem\LongBow\LongBow2\LongBow2_Stat
+    combatPath: Weapon/WeaponItem\LongBow\LongBow2\LongBow2_Combat
+    viewPath: Weapon/WeaponItem\LongBow\LongBow2\LongBow2_View
+  - weaponType: 2
+    weaponName: LongBow3
+    weaponID: 3
+    statPath: Weapon/WeaponItem\LongBow\LongBow3\LongBow3_Stat
+    combatPath: Weapon/WeaponItem\LongBow\LongBow3\LongBow3_Combat
+    viewPath: Weapon/WeaponItem\LongBow\LongBow3\LongBow3_View

@@ -1,0 +1,107 @@
+// Enemy/EnemyController.cs
+using UnityEngine;
+using UnityEngine.AI;
+
+public class EnemyController : CombatUnit
+{
+    [Header("AI感知")]
+    public float PatrolRadius = 10f;
+    public float ChaseRange = 8f;
+    public float AttackRange = 1.5f;
+    public LayerMask PlayerLayer;
+
+    [Header("组件")]
+    public Animator Animator;
+
+    public PlayerController TargetPlayer { get; private set; }
+
+    private IEnemyState currentState;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Animator = GetComponent<Animator>();
+        NavAgent = GetComponent<NavMeshAgent>();
+        NavAgent.speed = Attributes.GetFinal(AttributeType.Speed);
+    }
+
+    private void Start()
+    {
+        ChangeState(new EnemyPatrolState());
+    }
+
+    protected override void Update()
+    {
+        if (IsDead) return;
+        base.Update(); // 更新战斗状态
+        currentState?.Execute(this);
+    }
+
+    public void ChangeState(IEnemyState newState)
+    {
+        // 被控制时无法切换（眩晕等）
+        if (IsStunned && !(newState is EnemyHitState)) return;
+
+        currentState?.Exit(this);
+        currentState = newState;
+        currentState.Enter(this);
+    }
+
+    // 检测玩家（距离 + 视野角度简化版）
+    public bool DetectPlayer()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, ChaseRange, PlayerLayer);
+        foreach (var col in colliders)
+        {
+            if (col.TryGetComponent<PlayerController>(out var player) && !player.IsDead)
+            {
+                // 简化：只要距离内就检测到，可扩展视野角度检测
+                TargetPlayer = player;
+                return true;
+            }
+        }
+        TargetPlayer = null;
+        return false;
+    }
+
+    public void PerformAttack()
+    {
+        if (TargetPlayer == null) return;
+
+        float dist = Vector3.Distance(transform.position, TargetPlayer.transform.position);
+        if (dist <= AttackRange)
+        {
+            float dmg = Attributes.GetFinal(AttributeType.Attack);
+            TargetPlayer.TakeDamage(dmg, this);
+        }
+    }
+
+    // 重写受击，添加AI硬直
+    public override void TakeDamage(float damage, CombatUnit source, string damageType = "normal")
+    {
+        base.TakeDamage(damage, source, damageType);
+
+        // 受击打断当前行为（除非是霸体状态）
+        if (!StateMgr.HasState("SuperArmor") && !(currentState is EnemyHitState))
+        {
+            ChangeState(new EnemyHitState());
+        }
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+        NavAgent.isStopped = true;
+        ChangeState(null);
+        // 掉落或销毁逻辑
+        Destroy(gameObject, 3f);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, ChaseRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, AttackRange);
+    }
+}

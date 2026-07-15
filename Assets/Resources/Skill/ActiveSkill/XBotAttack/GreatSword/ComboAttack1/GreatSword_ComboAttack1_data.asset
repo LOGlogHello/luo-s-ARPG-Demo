@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f657b6ec8cbc464d92037d7cb9f3178, type: 3}
+  m_Name: GreatSword_ComboAttack1_data
+  m_EditorClassIdentifier: Assembly-CSharp:Luo.Skill:ActiveSkillDataSO
+  skillName: GreatSword_ComboAttack1_data
+  cooldown: 0
+  isActive: 1
+  effects: []
+  view: {fileID: 11400000, guid: cf4db36de7f33a843a5ecce0516951c1, type: 2}
+  targetSelector: {fileID: 11400000, guid: 5d2f002bf2f82894f9d41134bfb53cc5, type: 2}
+  timeline:
+    startUpStart: 0
+    startUpEnd: 0.7
+    effectStart: 0.7
+    effectEnd: 0.86
+    comboStart: 0.6
+    comboEnd: 0.86
+    recovery1Start: 0
+    recovery1End: 0
+    recovery2Start: 0.86
+    recovery2End: 1
+  conditions:
+  - {fileID: 11400000, guid: a8f4a6cb702241b42af3dc8f670c13a9, type: 2}
+  comboTransitions:
+  - targetSkill: {fileID: 11400000, guid: 2e7965a464058b24cb3670737fc84a02, type: 2}
+    consumeComboCount: 0
+  canCombo: 1
+  recoveryTransitions:
+  - targetSkill: {fileID: 11400000, guid: c5324850d5b474c4dbbd76d15f5c2774, type: 2}
+    consumeComboCount: 0
+  canRecovery: 1

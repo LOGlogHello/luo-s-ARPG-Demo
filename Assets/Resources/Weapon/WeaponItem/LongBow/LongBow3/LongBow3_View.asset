@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7d2dbfe1ca9f04e9dce08f16c70c50, type: 3}
+  m_Name: LongBow3_View
+  m_EditorClassIdentifier: Assembly-CSharp::Luo.WeaponViewData
+  modelPrefab: {fileID: 919132149155446097, guid: ce3f1a886d11d314a80cb35e8b5ff0e8, type: 3}
+  targetBone: 17
+  localPositionOffset: {x: -0.0000140965, y: 0.03936785, z: 0.02446949}
+  localRotationOffset: {x: 0, y: 0, z: -90.00002}
+  inventoryIcon: {fileID: 21300000, guid: 337ff7c6a051fc847aa98f63e6185a41, type: 3}
